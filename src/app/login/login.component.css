@@ -1,0 +1,29 @@
+#frame{
+    height: 100vh;
+    background-color: rgba(214, 232, 239, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('../../assets/images/Webalys-Kameleon.pics-Food-Dome.512.png');
+    background-size: cover;
+  }
+  #text{
+    margin-top: 1vh;
+    font-size: larger;
+  }
+  .login-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .login-full-width {
+    width: 100%;
+  }
+  
