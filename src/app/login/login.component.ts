@@ -8,10 +8,12 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  form:boolean=false;
   constructor(private loginservics:LoginService){}
   username = new FormControl('', [Validators.required, Validators.minLength(4)]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
   login(){
     this.loginservics.login(this.username.value??'', this.password.value??'')
+    this.form=!this.form;
   }
 }

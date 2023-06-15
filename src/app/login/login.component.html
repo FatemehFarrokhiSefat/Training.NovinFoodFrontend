@@ -13,12 +13,17 @@
       alt="Photo of a Shiba Inu"
     />
     <mat-card-content>
-      <!-- <div id="text">
-        <p>به فود اپ خوش امدید.</p>
-        <p>لطفا برای استفاده از امکانات بیشتر وارد حساب کاربری خود شوید و یا یک حساب کاربری برای خود ایجاد نمایید.</p>  
-      </div> -->
+      <div id="text">
+        <div id="text2">
+          <p>به فود اپ خوش امدید.</p>
+          <p>
+            لطفا برای استفاده از امکانات بیشتر وارد حساب کاربری خود شوید و یا یک
+            حساب کاربری برای خود ایجاد نمایید.
+          </p>
+        </div>
+      </div>
       <br />
-      <form class="login-form">
+      <form class="login-form" *ngIf="form" >
         <mat-form-field class="login-full-width">
           <mat-label>نام کاربری</mat-label>
           <input
@@ -28,13 +33,12 @@
             placeholder="برای مثال: امیر"
           />
           <mat-error *ngIf="username.hasError('required')">
-            حتما نام کابری وارد شود
+            حتما نام کاربری وارد شود
           </mat-error>
           <mat-error *ngIf="username.hasError('minLength')">
-            نام کاربری باید حداقل 4 حرف باشد
+            <span>نام کاربری باید حداقل 4 حرف باشد</span>
           </mat-error>
         </mat-form-field>
-
         <mat-form-field class="login-full-width">
           <mat-label>کلمه عبور</mat-label>
           <input
@@ -47,13 +51,13 @@
             حتما کلمه عبور وارد شود
           </mat-error>
           <mat-error *ngIf="password.hasError('minLength')">
-            کلمه عبور باید حداقل 8 حرف باشد
+          <span>کلمه عبور باید حداقل 8 حرف باشد</span>
           </mat-error>
         </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="login()" [disabled]="username.invalid || password.invalid" mat-button>ورود</button>&nbsp;
+      <button (click)="login()" [disabled]="username.invalid || password.invalid"    mat-button>ورود</button>&nbsp;
       <button mat-button>ثبت نام</button>
     </mat-card-actions>
   </mat-card>
