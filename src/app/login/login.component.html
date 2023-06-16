@@ -23,8 +23,8 @@
         </div>
       </div>
       <br />
-      <form class="login-form" *ngIf="form" >
-        <mat-form-field class="login-full-width">
+      <form class="login-form" >
+        <mat-form-field class="login-full-width" *ngIf="form">
           <mat-label>نام کاربری</mat-label>
           <input
             type="text"
@@ -39,8 +39,7 @@
             <p>نام کاربری باید حداقل 4 حرف باشد</p>
           </mat-error>
         </mat-form-field>
-        
-        <mat-form-field class="login-full-width">
+        <mat-form-field class="login-full-width" *ngIf="form">
           <mat-label>کلمه عبور</mat-label>
           <input
             type="password"
@@ -52,14 +51,29 @@
             حتما کلمه عبور وارد شود
           </mat-error>
           <mat-error *ngIf="password.hasError('minlength')">
-          <p>کلمه عبور باید حداقل 8 حرف باشد<p>
-          </mat-error>
+            <p>کلمه عبور باید حداقل 8 حرف باشد</p>
+            <p></p
+          ></mat-error>
         </mat-form-field>
+      </form>
+      <form id="register" >
+        <div *ngIf="select">
+          <h4>لطفا قبل از ثبت نام نوع فعالیت خود را مشخص کنید.</h4>
+          <mat-form-field class="mat-form-field">
+            <mat-label>نوع فعالیت</mat-label>
+            <mat-select>
+              <mat-option value="option1">رستوران</mat-option>
+              <mat-option value="option2">مشتری</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button  (click)="login()" mat-button>ورود</button>&nbsp;
-      <button mat-button>ثبت نام</button>
+      <button (click)="login()" mat-button>ورود</button>&nbsp;
+      <button (click)="loginII()" mat-button>ثبت نام</button>
     </mat-card-actions>
   </mat-card>
 </div>
+
+
