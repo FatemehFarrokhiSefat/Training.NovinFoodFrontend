@@ -8,6 +8,7 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  Disappearance:boolean=true;
   form:boolean=false;
   constructor(private loginservics:LoginService){}
   username = new FormControl('', [Validators.required, Validators.minLength(4)]);
@@ -15,5 +16,8 @@ export class LoginComponent {
   login(){
     this.loginservics.login(this.username.value??'', this.password.value??'')
     this.form=!this.form;
+    this.Disappearance=!this.Disappearance;
   }
-}
+  }
+
+

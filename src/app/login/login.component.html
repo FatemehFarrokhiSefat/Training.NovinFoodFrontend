@@ -13,8 +13,8 @@
       alt="Photo of a Shiba Inu"
     />
     <mat-card-content>
-      <div id="text">
-        <div id="text2">
+      <div id="text" *ngIf="Disappearance">
+        <div>
           <p>به فود اپ خوش امدید.</p>
           <p>
             لطفا برای استفاده از امکانات بیشتر وارد حساب کاربری خود شوید و یا یک
@@ -35,10 +35,11 @@
           <mat-error *ngIf="username.hasError('required')">
             حتما نام کاربری وارد شود
           </mat-error>
-          <mat-error *ngIf="username.hasError('minLength')">
-            <span>نام کاربری باید حداقل 4 حرف باشد</span>
+          <mat-error *ngIf="username.hasError('minlength')">
+            <p>نام کاربری باید حداقل 4 حرف باشد</p>
           </mat-error>
         </mat-form-field>
+        
         <mat-form-field class="login-full-width">
           <mat-label>کلمه عبور</mat-label>
           <input
@@ -50,14 +51,14 @@
           <mat-error *ngIf="password.hasError('required')">
             حتما کلمه عبور وارد شود
           </mat-error>
-          <mat-error *ngIf="password.hasError('minLength')">
-          <span>کلمه عبور باید حداقل 8 حرف باشد</span>
+          <mat-error *ngIf="password.hasError('minlength')">
+          <p>کلمه عبور باید حداقل 8 حرف باشد<p>
           </mat-error>
         </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="login()" [disabled]="username.invalid || password.invalid"    mat-button>ورود</button>&nbsp;
+      <button  (click)="login()" mat-button>ورود</button>&nbsp;
       <button mat-button>ثبت نام</button>
     </mat-card-actions>
   </mat-card>

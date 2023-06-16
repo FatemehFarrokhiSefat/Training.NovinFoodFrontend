@@ -13,9 +13,10 @@
   background-image: url("../../assets/images/Webalys-Kameleon.pics-Food-Dome.512.png");
   background-size: cover;
 }
+
 #text {
   font-size: larger;
-  background-color: rgba(187, 234, 234, 0.665);
+  background-color: rgba(170, 241, 241, 0.754);
   margin-top: 3vh;
   border-radius: 1vh;
   padding: 1vh 1vh 1vh 1vh;
@@ -29,5 +30,8 @@
 
 .login-full-width {
   width: 100%;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
 }
+
 
