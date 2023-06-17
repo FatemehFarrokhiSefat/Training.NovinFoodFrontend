@@ -10,7 +10,7 @@ import { LoginService } from './login.service';
 export class LoginComponent {
   Disappearance: boolean = true;
   form: boolean =false;
-  select: boolean = false;
+  
   constructor(private loginservics: LoginService) {}
   username = new FormControl('', [
     Validators.required,
@@ -22,12 +22,10 @@ export class LoginComponent {
   ]);
   login() {
     this.loginservics.login(this.username.value ?? '', this.password.value ?? '');
-      this.form = !this.form;
     this.Disappearance = !this.Disappearance;
+    this.form=!this.form;
   }
   loginII() {
     this.Disappearance = !this.Disappearance;
-    this.select = !this.select;
   }
 }
-

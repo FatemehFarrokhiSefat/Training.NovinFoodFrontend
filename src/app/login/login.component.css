@@ -38,13 +38,4 @@
   opacity: 0.75;
   font-size: 0.75em;
 }
-#register {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mat-form-field {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+

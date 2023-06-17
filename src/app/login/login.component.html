@@ -56,22 +56,10 @@
           ></mat-error>
         </mat-form-field>
       </form>
-      <form id="register" >
-        <div *ngIf="select">
-          <h4>لطفا قبل از ثبت نام نوع فعالیت خود را مشخص کنید.</h4>
-          <mat-form-field class="mat-form-field">
-            <mat-label>نوع فعالیت</mat-label>
-            <mat-select>
-              <mat-option value="option1">رستوران</mat-option>
-              <mat-option value="option2">مشتری</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </form>
     </mat-card-content>
     <mat-card-actions>
       <button (click)="login()" mat-button>ورود</button>&nbsp;
-      <button (click)="loginII()" mat-button>ثبت نام</button>
+      <button (click)="loginII()" [routerLink]="'/register'" mat-button>ثبت نام</button>
     </mat-card-actions>
   </mat-card>
 </div>

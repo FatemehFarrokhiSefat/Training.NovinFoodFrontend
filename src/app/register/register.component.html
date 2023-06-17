@@ -1,1 +1,132 @@
-<p>test</p>
+<div id="enrollment">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>فرم ثبت نام</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h4>لطفا قبل از ثبت نام نوع فعالیت خود را مشخص کنید.</h4>
+      <form id="register">
+        <div>
+          <mat-form-field class="mat-form-field">
+            <mat-label>نوع فعالیت</mat-label>
+            <mat-select>
+              <mat-option (click)="Restaurant()" value="رستوران"
+                >رستوران</mat-option
+              >
+              <mat-option (click)="Member()" value="مشتری">مشتری</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+      <form class="example-form" *ngIf="hidden">
+        <mat-form-field class="example-full-width">
+          <label>فرم ثبت نام رستوران </label>
+          <input matInput disabled value="رستوران" />
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-one">
+                <mat-label>نام:</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-one">
+                <mat-label>نام خانوادگی</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <td>
+          <mat-form-field class="full-one">
+            <mat-label>شهر:</mat-label>
+            <input matInput placeholder="برای مثال:همدان-" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="full-one">
+            <mat-label>نام رستوران:</mat-label>
+            <input matInput placeholder="برای مثال:ساحل" />
+          </mat-form-field>
+        </td>
+        <mat-form-field class="example-full-width">
+          <mat-label>آدرس محل کار:</mat-label>
+          <textarea
+            matInput
+            placeholder="...برای مثال :همدان- میدان امام"
+          ></textarea>
+        </mat-form-field>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>شماره تلفن همراه:</mat-label>
+                <input matInput #postalCode maxlength="5" placeholder="" />
+                <mat-hint align="end"></mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+
+    <!-- </form> -->
+    <form class="example-form" *ngIf="membership">
+      <mat-form-field class="example-full-width">
+        <label>فرم عضویت مشتری</label>
+        <input matInput disabled value="عضویت" />
+      </mat-form-field>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-one">
+              <mat-label>نام:</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="full-one">
+              <mat-label>نام خانوادگی</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <mat-form-field class="example-full-width">
+        <mat-label>پسورد</mat-label>
+        <textarea matInput placeholder="برای مثال :12345678"></textarea>
+      </mat-form-field>
+      <td>
+        <mat-form-field class="full-two">
+          <mat-label>ایمیل</mat-label>
+          <input matInput placeholder="برای مثال:aaa-bbb@gmail.com" />
+        </mat-form-field>
+      </td>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>شماره تلفن همراه:</mat-label>
+              <input matInput #postalCode maxlength="5" placeholder="" />
+              <mat-hint align="end"></mat-hint>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <mat-divider></mat-divider>
+    <!-- </mat-card-content> -->
+
+    <mat-card-actions>
+      <button mat-button>ثبت</button>
+      <button mat-button>عضویت</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+</div>
