@@ -9,17 +9,38 @@ import { FormControl, Validators } from '@angular/forms';
 export class RegisterComponent {
   hidden: boolean = false;
   membership: boolean = false;
-  menubar:boolean=true;
+  menubar: boolean = true;
 
-  username = new FormControl('', [Validators.required,Validators.minLength(4),]);
-  password = new FormControl('', [Validators.required,Validators.minLength(8),]);
-  City = new FormControl('', [Validators.required,Validators.minLength(4),]);
-  number = new FormControl('', [Validators.required,Validators.minLength(11),]);
-  Address = new FormControl('', [Validators.required,Validators.minLength(20),]);
-  firstname = new FormControl('', [Validators.required,Validators.minLength(10),]);
-  nrestaurant = new FormControl('', [Validators.required,Validators.minLength(3),]);
-  name = new FormControl('', [Validators.required,Validators.minLength(3),]);
-  email = new FormControl('', [Validators.required,Validators.minLength(10),]);
+  username = new FormControl('', [
+    Validators.required,
+    Validators.minLength(4),
+  ]);
+  
+  password = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+  ]);
+
+  City = new FormControl('', [Validators.required, Validators.minLength(4)]);
+  number = new FormControl('', [Validators.required, Validators.minLength(11)]);
+
+  Address = new FormControl('', [
+    Validators.required,
+    Validators.minLength(20),
+  ]);
+
+  firstname = new FormControl('', [
+    Validators.required,
+    Validators.minLength(10),
+  ]);
+
+  nrestaurant = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+  ]);
+
+  name = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  email = new FormControl('', [Validators.required, Validators.minLength(10)]);
 
   full: Full = new Full();
   array: Full[] = [];
@@ -34,16 +55,17 @@ export class RegisterComponent {
     this.hidden = true;
     this.membership = false;
 
-    this.menubar=!this.menubar;
+    this.menubar = !this.menubar;
   }
 
   Member() {
     this.membership = true;
     this.hidden = false;
-    this.menubar=!this.menubar;
+    this.menubar = !this.menubar;
   }
-
+  
 }
+
 class Full {
   membername!: string;
   restaurantname!: string;

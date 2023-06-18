@@ -25,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, RestaurantComponent, CustomerComponent, DashboardComponent],
   imports: [

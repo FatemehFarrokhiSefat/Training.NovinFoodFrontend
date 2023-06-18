@@ -23,9 +23,9 @@
         </div>
       </div>
       <br />
-      <form class="login-form" >
+      <form class="login-form">
         <mat-form-field class="login-full-width" *ngIf="form">
-          <mat-label >نام کاربری</mat-label>
+          <mat-label>نام کاربری</mat-label>
           <input
             type="text"
             matInput
@@ -40,7 +40,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="login-full-width" *ngIf="form">
-          <mat-label >کلمه عبور</mat-label>
+          <mat-label>کلمه عبور</mat-label>
           <input
             type="password"
             matInput
@@ -58,10 +58,10 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="login()"  mat-button>ورود</button>&nbsp;
-      <button (click)="loginII()" [routerLink]="'/register'" mat-button>ثبت نام</button>
+      <button (click)="login()" mat-button>ورود</button>&nbsp;
+      <button (click)="loginII()" [routerLink]="'/register'" mat-button>
+        ثبت نام
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
-
-
