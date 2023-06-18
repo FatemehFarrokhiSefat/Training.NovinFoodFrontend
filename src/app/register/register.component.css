@@ -21,13 +21,13 @@
   width: 100%;
 }
 
-.full-one {
-  position: relative;
-  right: 0vh;
-  width: 20vh;
+.full-one{
+  width: 70%;
 }
-.full-two {
-  width: 25vh;
-  position: relative;
-  right: 7vh;
+
+.full{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+

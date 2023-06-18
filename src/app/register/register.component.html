@@ -4,20 +4,22 @@
       <mat-card-title>فرم ثبت نام</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <h4>لطفا قبل از ثبت نام نوع فعالیت خود را مشخص کنید.</h4>
-      <form id="register">
-        <div>
-          <mat-form-field class="mat-form-field">
-            <mat-label>نوع فعالیت</mat-label>
-            <mat-select>
-              <mat-option (click)="Restaurant()" value="رستوران"
-                >رستوران</mat-option
-              >
-              <mat-option (click)="Member()" value="مشتری">مشتری</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </form>
+      <div *ngIf="menubar">
+        <h4>لطفا قبل از ثبت نام نوع فعالیت خود را مشخص کنید.</h4>
+        <form id="register">
+          <div>
+            <mat-form-field class="mat-form-field">
+              <mat-label>نوع فعالیت</mat-label>
+              <mat-select>
+                <mat-option (click)="Restaurant()" value="رستوران"
+                  >رستوران</mat-option
+                >
+                <mat-option (click)="Member()" value="مشتری">مشتری</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
       <form class="example-form" *ngIf="hidden">
         <mat-form-field class="example-full-width">
           <label>فرم ثبت نام رستوران </label>
@@ -28,13 +30,13 @@
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام:</mat-label>
-                <input name="name" [(ngModel)]="full.restaurantname" matInput />
+                <input name="name" [(ngModel)]="full.restaurantname" [formControl]="username" matInput />
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام خانوادگی</mat-label>
-                <input name="firstname" [(ngModel)]="full.firstname" matInput />
+                <input name="firstname" [(ngModel)]="full.firstname" [formControl]="firstname" matInput />
               </mat-form-field>
             </td>
           </tr>
@@ -42,18 +44,35 @@
         <td>
           <mat-form-field class="full-one">
             <mat-label>شهر:</mat-label>
-            <input name="City" [(ngModel)]="full.City" matInput placeholder="برای مثال:همدان-" />
+            <input
+              name="City"
+              [(ngModel)]="full.City"
+              [formControl]="City"
+              matInput
+              placeholder="برای مثال:همدان-"
+            />
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="full-one">
             <mat-label>نام رستوران:</mat-label>
-            <input name="nrestaurant" [(ngModel)]="full.nrestaurant" matInput placeholder="برای مثال:ساحل" />
+            <input
+              name="nrestaurant"
+              [(ngModel)]="full.nrestaurant"
+              [formControl]="nrestaurant"
+              matInput
+              placeholder="مثال:آشپزچی"
+            />
           </mat-form-field>
         </td>
         <mat-form-field class="example-full-width">
           <mat-label>آدرس محل کار:</mat-label>
-          <textarea name=" Address" [(ngModel)]="full.Address" matInput placeholder="...برای مثال :همدان- میدان امام"
+          <textarea
+            name=" Address"
+            [(ngModel)]="full.Address"
+            [formControl]="Address"
+            matInput
+            placeholder="...برای مثال :همدان- میدان امام"
           ></textarea>
         </mat-form-field>
 
@@ -62,7 +81,75 @@
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>شماره تلفن همراه:</mat-label>
-                <input name="number" [(ngModel)]="full.number" matInput #postalCode maxlength="5" placeholder="" />
+                <input
+                  name="number"
+                  [(ngModel)]="full.number"
+                  [formControl]="number"
+                  matInput
+                  #postalCode
+                  maxlength="11"
+                  placeholder=""
+                />
+                <mat-hint align="end"></mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <mat-divider></mat-divider>
+
+      <form class="example-form" *ngIf="membership">
+        <mat-form-field class="example-full-width">
+          <label>فرم عضویت مشتری</label>
+          <input matInput disabled value="عضویت" />
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-one">
+                <mat-label>نام:</mat-label>
+                <input name="name" [(ngModel)]="full.membername" [formControl]="name" matInput />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-one">
+                <mat-label>نام خانوادگی</mat-label>
+                <input name="firstname" [(ngModel)]="full.firstname" [formControl]="firstname" matInput />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <mat-form-field class="example-full-width">
+          <mat-label>پسورد</mat-label>
+          <textarea
+            name="password"
+            [(ngModel)]="full.password"
+            [formControl]="password"
+            matInput
+            maxlength="6"
+            placeholder="برای مثال :12345"
+          ></textarea>
+        </mat-form-field>
+        <td class="full">
+          <mat-form-field class="full-one">
+            <mat-label>ایمیل</mat-label>
+            <input name="email" [(ngModel)]="full.email" [formControl]="email" matInput />
+          </mat-form-field>
+        </td>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>شماره تلفن همراه:</mat-label>
+                <input
+                  name="number"
+                  [(ngModel)]="full.number"
+                  [formControl]="number"
+                  matInput
+                  #postalCode
+                  maxlength="11"
+                  placeholder=""
+                />
                 <mat-hint align="end"></mat-hint>
               </mat-form-field>
             </td>
@@ -71,57 +158,13 @@
       </form>
       <mat-divider></mat-divider>
     </mat-card-content>
-
-    <!-- </form> -->
-    <form class="example-form" *ngIf="membership">
-      <mat-form-field class="example-full-width">
-        <label>فرم عضویت مشتری</label>
-        <input matInput disabled value="عضویت" />
-      </mat-form-field>
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="full-one" >
-              <mat-label >نام:</mat-label>
-              <input name="name" [(ngModel)]="full.membername" matInput />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="full-one" >
-              <mat-label>نام خانوادگی</mat-label>
-              <input name="firstname" [(ngModel)]="full.firstname" matInput />
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-      <mat-form-field class="example-full-width" >
-        <mat-label>پسورد</mat-label>
-        <textarea name="password" [(ngModel)]="full.password" matInput placeholder="برای مثال :12345678"></textarea>
-      </mat-form-field>
-      <td>
-        <mat-form-field class="full-two" >
-          <mat-label>ایمیل</mat-label>
-          <input name="email" [(ngModel)]="full.email" matInput placeholder=" مثال:aaa-bbb@gmail.com" />
-        </mat-form-field>
-      </td>
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <mat-label>شماره تلفن همراه:</mat-label>
-              <input name="number" [(ngModel)]="full.number" matInput #postalCode maxlength="5" placeholder="" />
-              <mat-hint align="end"></mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </form>
-    <mat-divider></mat-divider>
-    <!-- </mat-card-content> -->
-
     <mat-card-actions>
-      <button [routerLink]="'/restaurant'" (click)="add()" mat-button>ثبت</button>
-      <button [routerLink]="'/customer'" (click)="add()" mat-button>عضویت</button>
+      <button [routerLink]="'/restaurant'" (click)="add()" mat-button>
+        ثبت
+      </button>
+      <button [routerLink]="'/customer'" (click)="add()" mat-button>
+        عضویت
+      </button>
     </mat-card-actions>
     <mat-card-footer>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
