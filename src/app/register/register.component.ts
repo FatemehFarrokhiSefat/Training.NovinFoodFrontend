@@ -14,4 +14,5 @@ export class RegisterComponent {
   Member(){
     this.membership=!this.membership;
   }
+  
 }

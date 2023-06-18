@@ -16,8 +16,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatDividerModule} from '@angular/material/divider';
+import { RestaurantComponent } from './restaurant/restaurant.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { CustomerComponent } from './customer/customer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, RestaurantComponent, CustomerComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,7 +41,12 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSidenavModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
