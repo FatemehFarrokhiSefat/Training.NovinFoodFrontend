@@ -22,8 +22,12 @@
 }
 
 .full-one {
+  position: relative;
+  right: 0vh;
   width: 20vh;
 }
-.full-two{
-    width: 25vh;
+.full-two {
+  width: 25vh;
+  position: relative;
+  right: 7vh;
 }

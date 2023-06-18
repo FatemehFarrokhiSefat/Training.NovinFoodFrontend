@@ -28,13 +28,13 @@
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام:</mat-label>
-                <input matInput />
+                <input name="name" [(ngModel)]="full.restaurantname" matInput />
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام خانوادگی</mat-label>
-                <input matInput />
+                <input name="firstname" [(ngModel)]="full.firstname" matInput />
               </mat-form-field>
             </td>
           </tr>
@@ -42,20 +42,18 @@
         <td>
           <mat-form-field class="full-one">
             <mat-label>شهر:</mat-label>
-            <input matInput placeholder="برای مثال:همدان-" />
+            <input name="City" [(ngModel)]="full.City" matInput placeholder="برای مثال:همدان-" />
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="full-one">
             <mat-label>نام رستوران:</mat-label>
-            <input matInput placeholder="برای مثال:ساحل" />
+            <input name="nrestaurant" [(ngModel)]="full.nrestaurant" matInput placeholder="برای مثال:ساحل" />
           </mat-form-field>
         </td>
         <mat-form-field class="example-full-width">
           <mat-label>آدرس محل کار:</mat-label>
-          <textarea
-            matInput
-            placeholder="...برای مثال :همدان- میدان امام"
+          <textarea name=" Address" [(ngModel)]="full.Address" matInput placeholder="...برای مثال :همدان- میدان امام"
           ></textarea>
         </mat-form-field>
 
@@ -64,7 +62,7 @@
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>شماره تلفن همراه:</mat-label>
-                <input matInput #postalCode maxlength="5" placeholder="" />
+                <input name="number" [(ngModel)]="full.number" matInput #postalCode maxlength="5" placeholder="" />
                 <mat-hint align="end"></mat-hint>
               </mat-form-field>
             </td>
@@ -83,27 +81,27 @@
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="full-one">
-              <mat-label>نام:</mat-label>
-              <input matInput />
+            <mat-form-field class="full-one" >
+              <mat-label >نام:</mat-label>
+              <input name="name" [(ngModel)]="full.membername" matInput />
             </mat-form-field>
           </td>
           <td>
-            <mat-form-field class="full-one">
+            <mat-form-field class="full-one" >
               <mat-label>نام خانوادگی</mat-label>
-              <input matInput />
+              <input name="firstname" [(ngModel)]="full.firstname" matInput />
             </mat-form-field>
           </td>
         </tr>
       </table>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" >
         <mat-label>پسورد</mat-label>
-        <textarea matInput placeholder="برای مثال :12345678"></textarea>
+        <textarea name="password" [(ngModel)]="full.password" matInput placeholder="برای مثال :12345678"></textarea>
       </mat-form-field>
       <td>
-        <mat-form-field class="full-two">
+        <mat-form-field class="full-two" >
           <mat-label>ایمیل</mat-label>
-          <input matInput placeholder="برای مثال:aaa-bbb@gmail.com" />
+          <input name="email" [(ngModel)]="full.email" matInput placeholder=" مثال:aaa-bbb@gmail.com" />
         </mat-form-field>
       </td>
       <table class="example-full-width" cellspacing="0">
@@ -111,7 +109,7 @@
           <td>
             <mat-form-field class="example-full-width">
               <mat-label>شماره تلفن همراه:</mat-label>
-              <input matInput #postalCode maxlength="5" placeholder="" />
+              <input name="number" [(ngModel)]="full.number" matInput #postalCode maxlength="5" placeholder="" />
               <mat-hint align="end"></mat-hint>
             </mat-form-field>
           </td>
@@ -122,8 +120,8 @@
     <!-- </mat-card-content> -->
 
     <mat-card-actions>
-      <button [routerLink]="'/restaurant'" mat-button>ثبت</button>
-      <button [routerLink]="'/customer'" mat-button>عضویت</button>
+      <button [routerLink]="'/restaurant'" (click)="add()" mat-button>ثبت</button>
+      <button [routerLink]="'/customer'" (click)="add()" mat-button>عضویت</button>
     </mat-card-actions>
     <mat-card-footer>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
