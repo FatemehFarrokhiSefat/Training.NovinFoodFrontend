@@ -30,23 +30,25 @@
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام:</mat-label>
-                <input
-                  name="name"
-                  [(ngModel)]="full.restaurantname"
-                  [formControl]="username"
-                  matInput
-                />
+                <input name="name" [formControl]="name" matInput />
+                <mat-error *ngIf="name.hasError('required')">
+                  الزامی است.
+                </mat-error>
+                <mat-error *ngIf="name.hasError('minlength')">
+                  <span> بیشتر از3 حرف.</span>
+                </mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام خانوادگی</mat-label>
-                <input
-                  name="firstname"
-                  [(ngModel)]="full.firstname"
-                  [formControl]="firstname"
-                  matInput
-                />
+                <input name="lastname" [formControl]="lastname" matInput />
+                <mat-error *ngIf="lastname.hasError('required')">
+                  الزامی است.
+                </mat-error>
+                <mat-error *ngIf="lastname.hasError('minlength')">
+                  <span>بیشتر از5 حرف.</span>
+                </mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -56,11 +58,16 @@
             <mat-label>شهر:</mat-label>
             <input
               name="City"
-              [(ngModel)]="full.City"
               [formControl]="City"
               matInput
               placeholder="برای مثال:همدان-"
             />
+            <mat-error *ngIf="City.hasError('required')">
+              الزامی است.
+            </mat-error>
+            <mat-error *ngIf="City.hasError('minlength')">
+              <span>بیشتر از4 حرف.</span>
+            </mat-error>
           </mat-form-field>
         </td>
         <td>
@@ -68,22 +75,32 @@
             <mat-label>نام رستوران:</mat-label>
             <input
               name="nrestaurant"
-              [(ngModel)]="full.nrestaurant"
               [formControl]="nrestaurant"
               matInput
               placeholder="مثال:آشپزچی"
             />
+            <mat-error *ngIf="nrestaurant.hasError('required')">
+              الزامی است.
+            </mat-error>
+            <mat-error *ngIf="nrestaurant.hasError('minlength')">
+              <span>بیشتر از3 حرف.</span>
+            </mat-error>
           </mat-form-field>
         </td>
         <mat-form-field class="example-full-width">
           <mat-label>آدرس محل کار:</mat-label>
           <textarea
             name=" Address"
-            [(ngModel)]="full.Address"
             [formControl]="Address"
             matInput
             placeholder="...برای مثال :همدان- میدان امام"
           ></textarea>
+          <mat-error *ngIf="Address.hasError('required')">
+            الزامی است.
+          </mat-error>
+          <mat-error *ngIf="Address.hasError('minlength')">
+            <span>آدرس بیشتر از 20 حرف باشد.</span>
+          </mat-error>
         </mat-form-field>
 
         <table class="example-full-width" cellspacing="0">
@@ -93,13 +110,18 @@
                 <mat-label>شماره تلفن همراه:</mat-label>
                 <input
                   name="number"
-                  [(ngModel)]="full.number"
                   [formControl]="number"
                   matInput
                   #postalCode
                   maxlength="11"
                   placeholder=""
                 />
+                <mat-error *ngIf="number.hasError('required')">
+                  الزامی است.
+                </mat-error>
+                <mat-error *ngIf="number.hasError('minlength')">
+                  <span>شماره همراه بیشتر از 11 رقم باشد.</span>
+                </mat-error>
                 <mat-hint align="end"></mat-hint>
               </mat-form-field>
             </td>
@@ -118,23 +140,25 @@
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام:</mat-label>
-                <input
-                  name="name"
-                  [(ngModel)]="full.membername"
-                  [formControl]="name"
-                  matInput
-                />
+                <input name="name" [formControl]="name" matInput />
+                <mat-error *ngIf="name.hasError('required')">
+                  الزامی است.
+                </mat-error>
+                <mat-error *ngIf="name.hasError('minlength')">
+                  <span> بیشتر از3 حرف.</span>
+                </mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="full-one">
                 <mat-label>نام خانوادگی</mat-label>
-                <input
-                  name="firstname"
-                  [(ngModel)]="full.firstname"
-                  [formControl]="firstname"
-                  matInput
-                />
+                <input name="lastname" [formControl]="lastname" matInput />
+                <mat-error *ngIf="lastname.hasError('required')">
+                  الزامی است.
+                </mat-error>
+                <mat-error *ngIf="lastname.hasError('minlength')">
+                  <span> بیشتر از5 حرف.</span>
+                </mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -143,22 +167,28 @@
           <mat-label>پسورد</mat-label>
           <textarea
             name="password"
-            [(ngModel)]="full.password"
             [formControl]="password"
             matInput
             maxlength="6"
             placeholder="برای مثال :12345"
           ></textarea>
+          <mat-error *ngIf="password.hasError('required')">
+            الزامی است.
+          </mat-error>
+          <mat-error *ngIf="password.hasError('minlength')">
+            <span> بیشتر از6 رقم.</span>
+          </mat-error>
         </mat-form-field>
         <td class="full">
           <mat-form-field class="full-one">
             <mat-label>ایمیل</mat-label>
-            <input
-              name="email"
-              [(ngModel)]="full.email"
-              [formControl]="email"
-              matInput
-            />
+            <input name="email" [formControl]="email" matInput />
+            <mat-error *ngIf="email.hasError('required')">
+              الزامی است.
+            </mat-error>
+            <mat-error *ngIf="email.hasError('minlength')">
+              <span>ایمیل بیشتر از20 حرف.</span>
+            </mat-error>
           </mat-form-field>
         </td>
         <table class="example-full-width" cellspacing="0">
@@ -168,13 +198,18 @@
                 <mat-label>شماره تلفن همراه:</mat-label>
                 <input
                   name="number"
-                  [(ngModel)]="full.number"
                   [formControl]="number"
                   matInput
                   #postalCode
                   maxlength="11"
                   placeholder=""
                 />
+                <mat-error *ngIf="number.hasError('required')">
+                  الزامی است.
+                </mat-error>
+                <mat-error *ngIf="number.hasError('minlength')">
+                  <span> شماره همراه بیشتر از11 رقم.</span>
+                </mat-error>
                 <mat-hint align="end"></mat-hint>
               </mat-form-field>
             </td>
@@ -184,15 +219,13 @@
       <mat-divider></mat-divider>
     </mat-card-content>
     <mat-card-actions>
-      <button [routerLink]="'/restaurant'" (click)="add()" mat-button>
+      <button [routerLink]="'/restaurant'"  (click)="add()" mat-button>
         ثبت
       </button>
-      <button [routerLink]="'/customer'" (click)="add()" mat-button>
+      <button [routerLink]="'/customer'"  (click)="add()" mat-button>
         عضویت
       </button>
     </mat-card-actions>
-    <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </mat-card-footer>
+    <mat-card-footer> </mat-card-footer>
   </mat-card>
 </div>

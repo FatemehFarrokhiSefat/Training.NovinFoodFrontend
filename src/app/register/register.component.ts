@@ -11,17 +11,19 @@ export class RegisterComponent {
   membership: boolean = false;
   menubar: boolean = true;
 
+
   username = new FormControl('', [
     Validators.required,
     Validators.minLength(4),
   ]);
-  
+
   password = new FormControl('', [
     Validators.required,
-    Validators.minLength(8),
+    Validators.minLength(6),
   ]);
 
   City = new FormControl('', [Validators.required, Validators.minLength(4)]);
+
   number = new FormControl('', [Validators.required, Validators.minLength(11)]);
 
   Address = new FormControl('', [
@@ -29,9 +31,9 @@ export class RegisterComponent {
     Validators.minLength(20),
   ]);
 
-  firstname = new FormControl('', [
+  lastname = new FormControl('', [
     Validators.required,
-    Validators.minLength(10),
+    Validators.minLength(5),
   ]);
 
   nrestaurant = new FormControl('', [
@@ -40,7 +42,7 @@ export class RegisterComponent {
   ]);
 
   name = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  email = new FormControl('', [Validators.required, Validators.minLength(10)]);
+  email = new FormControl('', [Validators.required, Validators.minLength(33)]);
 
   full: Full = new Full();
   array: Full[] = [];
@@ -49,12 +51,12 @@ export class RegisterComponent {
     this.array.push(this.full);
     this.full = new Full();
     console.log(this.array);
+
   }
 
   Restaurant() {
     this.hidden = true;
     this.membership = false;
-
     this.menubar = !this.menubar;
   }
 
@@ -63,7 +65,6 @@ export class RegisterComponent {
     this.hidden = false;
     this.menubar = !this.menubar;
   }
-  
 }
 
 class Full {

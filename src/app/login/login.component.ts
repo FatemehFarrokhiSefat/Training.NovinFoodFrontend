@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   Disappearance: boolean = true;
-  form: boolean = false;
+  form: boolean =true;
 
   constructor(private loginservics: LoginService) {}
 
@@ -26,8 +26,7 @@ export class LoginComponent {
 
   login() {
     this.loginservics.login(this.username.value ?? '',this.password.value ?? '' );
-    this.Disappearance = !this.Disappearance;
-    this.form = !this.form;
+   this.Disappearance=false;
   }
 
   loginII() {
